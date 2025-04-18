@@ -1,0 +1,7 @@
+torch
+librosa
+numpy
+flask
+transformers
+huggingface_hub
+torch.nn
