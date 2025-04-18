@@ -6,3 +6,6 @@ transformers
 huggingface_hub
 joblib
 gunicorn
+streamlit
+scikit-learn
+scipy
