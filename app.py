@@ -226,8 +226,8 @@ LABELS = ["HC", "MCI", "Dementia"]
 REPO_ID = "gandalf513/memotagdementia"
 
 # Load Whisper
-whisper_processor = WhisperProcessor.from_pretrained("openai/whisper-small")
-whisper_model = WhisperForConditionalGeneration.from_pretrained("openai/whisper-small").to(DEVICE)
+whisper_processor = WhisperProcessor.from_pretrained("openai/whisper-tiny")
+whisper_model = WhisperForConditionalGeneration.from_pretrained("openai/whisper-tiny").to(DEVICE)
 whisper_model.eval()
 
 # Load TF-IDF vectorizer
