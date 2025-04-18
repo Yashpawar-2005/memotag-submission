@@ -120,7 +120,9 @@ HTML_TEMPLATE = '''
             <button type="submit">Analyze</button>
         </form>
     </div>
-    
+    <div id="loading" style="display: none; text-align: center; margin-top: 20px;">
+    <p>Analyzing...</p>
+</div>
     <div id="result">
         <h2>Analysis Results</h2>
         <p><strong>Transcription:</strong> <span id="transcription"></span></p>
@@ -130,7 +132,9 @@ HTML_TEMPLATE = '''
     <script>
         document.getElementById('uploadForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            
+             document.getElementById('loading').style.display = 'block';
+    // Hide any previous results
+    document.getElementById('result').style.display = 'none';
             const formData = new FormData();
             const fileInput = document.getElementById('audioFile');
             
@@ -142,6 +146,7 @@ HTML_TEMPLATE = '''
             })
             .then(response => response.json())
             .then(data => {
+             document.getElementById('loading').style.display = 'none';
                 document.getElementById('transcription').textContent = data.transcription;
                 document.getElementById('prediction').textContent = data.prediction;
                 document.getElementById('result').style.display = 'block';
